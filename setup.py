@@ -1,4 +1,4 @@
-from disutils import setup
+from distutils.core import setup
 
 pack_version = __import__('rpy2_Matrix').__version__
 
