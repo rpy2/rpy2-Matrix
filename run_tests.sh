@@ -2,4 +2,4 @@
 
 pytest \
     --cov=rpy2_Matrix
-    rpy2_Matrix/tests
+    rpy2_Matrix
