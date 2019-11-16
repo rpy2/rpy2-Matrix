@@ -112,14 +112,14 @@ class denseMatrix(Matrix):
 class sparseMatrix(Matrix):
     __rname__ = 'sparseMatrix'
 
-    @classmethod
-    def new(cls,
+    @staticmethod
+    def new(
             i=vectors.MissingArg, j=vectors.MissingArg,
             p=vectors.MissingArg, x=vectors.MissingArg,
             dims=vectors.MissingArg, dimnames=vectors.MissingArg,
             symmetric=False, triangular=False, index1=True,
             giveCsparse=True, check=True, use_last_ij=False):
-        unclassed_obj = Matrix_pack.symmetricMatrix(
+        unclassed_obj = Matrix_pack.sparseMatrix(
             i=i, j=j, p=p, x=x, dims=dims, dimnames=dimnames,
             symmetric=symmetric, triangular=triangular, index1=index1,
             giveCsparse=giveCsparse, check=check, use_last_ij=use_last_ij)
@@ -163,7 +163,17 @@ class dsCMatrix(CsparseMatrix, dsparseMatrix, symmetricMatrix,
     __rname__ = 'dsCMatrix'
 
 
+class TsparseMatrix(sparseMatrix):
+    __rname__ = 'TsparseMatrix'
+
+
+class dgTMatrix(TsparseMatrix, dsparseMatrix, generalMatrix,
+                RS4Vector):
+    __rname__ = 'dgTMatrix'
+
+
 _classmap = {
     'dgCMatrix': dgCMatrix,
-    'dsCMatrix': dsCMatrix
+    'dsCMatrix': dsCMatrix,
+    'dgTMatrix': dgTMatrix
 }
