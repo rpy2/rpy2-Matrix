@@ -9,7 +9,7 @@ if __name__ == '__main__':
         description='Mapping the R package Matrix',
         license='GPLv2+',
         requires=['rpy2'],
-        package_dir='rpy2_Matrix',
+        packages=['rpy2_Matrix'],
         classifiers=['Programming Language :: Python',
                      'Programming Language :: Python :: 3',
                      'Programming Language :: Python :: 3.6',
