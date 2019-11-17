@@ -2,7 +2,6 @@
 between R objects from the package Matrix and scipy sparse matrices."""
 
 import rpy2.robjects.conversion as conversion
-import rpy2.rinterface as rinterface
 from rpy2.rinterface import SexpS4
 from rpy2.robjects.methods import RS4
 
@@ -12,8 +11,6 @@ try:
 except ImportError:
     has_scipy = False
 import typing
-import warnings
-
 from . import Matrix
 
 
@@ -50,7 +47,6 @@ if has_scipy:
             # 1. identify the best matching scipy class
             # 2. create an instance populated with data
             raise NotImplementedError()
-
 
     def py2rpy_csc_matrix(obj) -> Matrix.Matrix:
         # TODO: implement how to populate an R compressed sparse column matrix
