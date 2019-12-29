@@ -4,7 +4,7 @@ pack_version = __import__('rpy2_Matrix').__version__
 
 if __name__ == '__main__':
     setup(
-        name='rpy2_Matrix',
+        name='rpy2-Matrix',
         version=pack_version,
         description='Mapping the R package Matrix',
         license='GPLv2+',
