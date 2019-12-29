@@ -36,7 +36,7 @@ jobs:
         pip install ipython rpy2 scipy
     - name: Install R dependencies
       run: |
-	Rscript -e 'install.packages(c("dplyr", "ggplot2", "tidyr"))'
+        Rscript -e 'install.packages(c("dplyr", "ggplot2", "tidyr"))'
     - name: Install package
       run: |
         python setup.py install
