@@ -30,10 +30,12 @@ jobs:
       run: |
         pip install flake8
         ./run_linting.sh
-    - name: Install R dependencies
+    - name: Install Python dependencies
       run: |
         pip install flake8 pytest codecov pytest-cov
         pip install ipython rpy2 scipy
+    - name: Install R dependencies
+      run: |
 	Rscript -e 'install.packages(c("dplyr", "ggplot2", "tidyr"))'
     - name: Install package
       run: |
