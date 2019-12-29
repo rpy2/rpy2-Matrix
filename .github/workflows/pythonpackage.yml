@@ -32,9 +32,9 @@ jobs:
         ./run_linting.sh
     - name: Install R dependencies
       run: |
-        sudo Rscript ../../install_r_packages.r dplyr ggplot2 tidyr
         pip install flake8 pytest codecov pytest-cov
         pip install ipython rpy2 scipy
+	Rscript -e 'install.packages(c("dplyr", "ggplot2", "tidyr"))'
     - name: Install package
       run: |
         python setup.py install
