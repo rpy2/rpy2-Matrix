@@ -4,6 +4,10 @@
 
 This Python package is an extension to `rpy2` mapping the R package `Matrix`.
 
+The R package is a rather complex hierarchy of classes, some of which are already mirrored (along with the hierarchy, as shown here):
+
+![](inheritance.png)
+
 To install from the Github repository:
 
 ```bash
