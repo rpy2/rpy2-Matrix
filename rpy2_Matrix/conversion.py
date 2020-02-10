@@ -1,6 +1,8 @@
 """This module handles the conversion of data structures
 between R objects from the package Matrix and scipy sparse matrices."""
 
+from functools import partial
+import rpy2.robjects
 import rpy2.robjects.conversion as conversion
 from rpy2.rinterface import SexpS4
 from rpy2.robjects.methods import RS4
@@ -14,21 +16,7 @@ import typing
 from . import Matrix
 
 
-def rpy2py_sexps4_wrap(obj: SexpS4) -> RS4:
-    """Wrap an R S4 object into a Matrix class, if possible.
-
-    If there is no matching Matrix class, this returns an
-    robjects-level RS4 instance."""
-
-    for x in obj.rclass:
-        cls = Matrix._classmap.get(x)
-        if cls is not None:
-            return cls(obj)
-    return RS4(obj)
-
-
-wrap = conversion.Converter('Wrap R objects')
-wrap.rpy2py.register(SexpS4, rpy2py_sexps4_wrap)
+rs4map_context = partial(rpy2.robjects.rs4map_context, Matrix._classmap)
 
 cast = conversion.Converter('Cast R objects into scipy objects')
 
@@ -38,9 +26,9 @@ if has_scipy:
             obj: SexpS4
     ) -> typing.Union[RS4, scipy.sparse.spmatrix]:
 
-        res = rpy2py_sexps4_wrap(obj)
-        if type(res) is RS4:
-            return res
+        cls = Matrix.nameclassmap.find(obj.extends())
+        if cls is RS4:
+            return cls(obj)
         else:
             # TODO: implement how to populate a scipy sparse column matrix
             # from an R object.
@@ -53,8 +41,6 @@ if has_scipy:
         # from the scipy object.
         # res = Matrix.sparseMatrix(giveCsparse=True)
         raise NotImplementedError()
-
-    wrap.py2rpy.register(scipy.sparse.csc_matrix, py2rpy_csc_matrix)
 
     cast.rpy2py.register(SexpS4, rpy2py_sexps4_scipy)
     cast.py2rpy.register(scipy.sparse.csc_matrix, py2rpy_csc_matrix)

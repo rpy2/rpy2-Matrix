@@ -2,7 +2,6 @@ import pytest
 
 from rpy2 import robjects
 from rpy2.robjects.vectors import IntVector
-import rpy2.robjects.conversion as rpy2_conversion
 from . import Matrix
 from . import conversion
 
@@ -32,9 +31,7 @@ def test_sparseMatrix(args, kwargs, expected_cls):
 
 
 def test_conversion_wrap():
-    with rpy2_conversion.localconverter(
-            robjects.default_converter + conversion.wrap
-    ):
+    with conversion.rs4map_context():
         # The package Matrix is already imported in the embedded R
         # (implicit when importing our Python package Matrix).
         m = robjects.r('Matrix(c(0,1,0,0), 6, 4)')

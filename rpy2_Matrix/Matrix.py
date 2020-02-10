@@ -1,3 +1,4 @@
+import rpy2.robjects
 import rpy2.robjects.methods
 from rpy2.robjects import vectors
 from rpy2.robjects.packages import (importr,
@@ -177,3 +178,7 @@ _classmap = {
     'dsCMatrix': dsCMatrix,
     'dgTMatrix': dgTMatrix
 }
+
+nameclassmap = rpy2.robjects.NameClassMap(rpy2.robjects.methods.RS4)
+for k, v in _classmap.items():
+    nameclassmap[k] = v
