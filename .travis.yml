@@ -81,7 +81,8 @@ before_install:
   - |
     sudo Rscript ./install_r_packages.r dplyr ggplot2 tidyr
     pip install flake8 pytest codecov pytest-cov
-    pip install ipython rpy2 scipy
+    pip install ipython scipy
+    pip install https://github.com/rpy2/rpy2/zipball/master
 
 install:
   - python setup.py install
