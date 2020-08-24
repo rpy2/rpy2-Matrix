@@ -1,18 +1,14 @@
 """This module handles the conversion of data structures
 between R objects from the package Matrix and scipy sparse matrices."""
 
-from functools import partial
-import rpy2.robjects
 import rpy2.robjects.conversion as conversion
 from rpy2.rinterface import SexpS4
-from rpy2.robjects.methods import RS4
 
 try:
     import scipy.sparse
     has_scipy = True
 except ImportError:
     has_scipy = False
-import typing
 from . import Matrix
 
 
