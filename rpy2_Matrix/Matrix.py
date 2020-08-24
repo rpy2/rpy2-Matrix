@@ -179,6 +179,7 @@ _classmap = {
     'dgTMatrix': dgTMatrix
 }
 
-nameclassmap = rpy2.robjects.NameClassMap(rpy2.robjects.methods.RS4)
+nameclassmap = (rpy2.robjects
+                .conversion.NameClassMap(rpy2.robjects.methods.RS4))
 for k, v in _classmap.items():
     nameclassmap[k] = v

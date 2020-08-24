@@ -31,7 +31,7 @@ def test_sparseMatrix(args, kwargs, expected_cls):
 
 
 def test_conversion_wrap():
-    with conversion.rs4map_context():
+    with conversion.rs4map_context:
         # The package Matrix is already imported in the embedded R
         # (implicit when importing our Python package Matrix).
         m = robjects.r('Matrix(c(0,1,0,0), 6, 4)')
