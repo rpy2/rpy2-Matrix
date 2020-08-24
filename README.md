@@ -1,5 +1,6 @@
 # Mapping the R package Matrix
 
+![Python package](https://github.com/rpy2/rpy2-Matrix/workflows/Python%20package/badge.svg)
 [![Build Status](https://travis-ci.com/rpy2/rpy2-Matrix.svg?branch=master)](https://travis-ci.com/rpy2/rpy2-Matrix)
 
 This Python package is an extension to `rpy2` mapping the R package `Matrix`.
