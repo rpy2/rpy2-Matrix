@@ -3,7 +3,7 @@ name: Pages
 on:
   push:
     branches:    
-      - '!gh-pages'
+      - 'master'
 
 env:
   R-VERSION: "4.0"
