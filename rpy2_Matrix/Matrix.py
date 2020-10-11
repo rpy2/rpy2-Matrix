@@ -1,3 +1,9 @@
+"""Map the R package Matrix for rpy2.
+
+This module maps some of the classes defined by the R
+package Matrix.
+"""
+
 import rpy2.robjects
 import rpy2.robjects.methods
 from rpy2.robjects import vectors
