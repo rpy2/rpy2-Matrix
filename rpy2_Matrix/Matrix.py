@@ -27,6 +27,7 @@ Matrix_weakpack = WeakPackage(Matrix_pack._env,
 
 
 class RS4Vector(rpy2.robjects.methods.RS4):
+    """Base class for RS4 objects with the behavior of base R vectors."""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -40,30 +41,34 @@ def _setExtractDelegators(self):
 
 
 class mMatrix(metaclass=rpy2.robjects.methods.RS4Auto_Type):
+    """Mapping for the RS4 class Matrix::mMatrix."""
     __rname__ = 'mMatrix'
     __rpackagename__ = 'Matrix'
 
 
 class Mnumeric(metaclass=rpy2.robjects.methods.RS4Auto_Type):
+    """Mapping for the RS4 class Matrix::Mnumeric."""
     __rname__ = 'Mnumeric'
     __rpackagename__ = 'Matrix'
 
 
 class replValueSp(metaclass=rpy2.robjects.methods.RS4Auto_Type):
+    """Mapping for the RS4 class Matrix::replValueSp."""
     __rname__ = 'replValueSp'
     __rpackagename__ = 'Matrix'
 
 
 class Matrix(mMatrix, Mnumeric, replValueSp):
+    """Mapping for the RS4 class Matrix::Matrix."""
     __rname__ = 'Matrix'
     __rpackagename__ = 'Matrix'
 
     @classmethod
     def new(cls,
             data=rpy2.robjects.NA_Logical,
-            nrow=1, ncol=1, byrow=False,
+            nrow: int = 1, ncol: int = 1, byrow: bool = False,
             dimnames=rpy2.robjects.NULL,
-            sparse=rpy2.robjects.NULL, doDiag=True, forceCheck=False):
+            sparse=rpy2.robjects.NULL, doDiag: bool = True, forceCheck: bool = False):
         unclassed_obj = Matrix_pack.Matrix(
             data=data,
             nrow=nrow, ncol=ncol, byrow=byrow,
@@ -111,15 +116,18 @@ class denseMatrix(Matrix):
 
 
 class sparseMatrix(Matrix):
+    """Mapping for the RS4 class Matrix::sparseMatrix."""
+
     __rname__ = 'sparseMatrix'
 
     @staticmethod
-    def new(
-            i=vectors.MissingArg, j=vectors.MissingArg,
+    def new(i=vectors.MissingArg, j=vectors.MissingArg,
             p=vectors.MissingArg, x=vectors.MissingArg,
             dims=vectors.MissingArg, dimnames=vectors.MissingArg,
-            symmetric=False, triangular=False, index1=True,
-            giveCsparse=True, check=True, use_last_ij=False):
+            symmetric: bool = False, triangular: bool = False,
+            index1: bool = True,
+            giveCsparse: bool = True, check: bool = True,
+            use_last_ij: bool = False):
         unclassed_obj = Matrix_pack.sparseMatrix(
             i=i, j=j, p=p, x=x, dims=dims, dimnames=dimnames,
             symmetric=symmetric, triangular=triangular, index1=index1,
@@ -134,42 +142,51 @@ class sparseMatrix(Matrix):
 
 
 class generalMatrix(compMatrix):
+    """Mapping for the RS4 class Matrix::generalMatrix."""
     __rname__ = 'generalMatrix'
 
 
 class symmetricMatrix(compMatrix):
+    """Mapping for the RS4 class Matrix::symmetricMatrix."""
     __rname__ = 'symmetricMatrix'
 
 
 class dsparseMatrix(dMatrix, sparseMatrix):
+    """Mapping for the RS4 class Matrix::dsparseMatrix."""
     __rname__ = 'dsparseMatrix'
 
 
 class dgCMatrix(dsparseMatrix, generalMatrix,
                 RS4Vector):
+    """Mapping for the RS4 class Matrix::dcgMatrix."""
     __rname__ = 'dgCMatrix'
 
 
 class CsparseMatrix(sparseMatrix):
+    """Mapping for the RS4 class Matrix::CsparseMatrix."""
     __rname__ = 'CsparseMatrix'
 
 
 class dCsparseMatrix(sparseMatrix):
+    """Mapping for the RS4 class Matrix::dCsparseMatrix."""
     __rname__ = 'dCsparseMatrix'
 
 
 class dsCMatrix(CsparseMatrix, dsparseMatrix, symmetricMatrix,
                 dCsparseMatrix,
                 RS4Vector):
+    """Mapping for the RS4 class Matrix::dsCMatrix."""
     __rname__ = 'dsCMatrix'
 
 
 class TsparseMatrix(sparseMatrix):
+    """Mapping for the RS4 class Matrix::TsparseMatrix."""
     __rname__ = 'TsparseMatrix'
 
 
 class dgTMatrix(TsparseMatrix, dsparseMatrix, generalMatrix,
                 RS4Vector):
+    """Mapping for the RS4 class Matrix::dgTMatrix."""
     __rname__ = 'dgTMatrix'
 
 
