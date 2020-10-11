@@ -36,9 +36,24 @@
 <h1>rpy2-Matrix: mapping R’s package Matrix for rpy2<a class="headerlink" href="#rpy2-matrix-mapping-r-s-package-matrix-for-rpy2" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This package is a wrapper for the R package <cite>Matrix</cite>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rpy2_Matrix</span> <span class="kn">import</span> <span class="n">Matrix</span>
+<span class="kn">from</span> <span class="nn">rpy2.robjects.vectors</span> <span class="kn">import</span> <span class="n">IntVector</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">Matrix</span><span class="o">.</span><span class="n">sparseMatrix</span><span class="o">.</span><span class="n">new</span><span class="p">(</span>
+    <span class="n">IntVector</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]),</span> <span class="n">IntVector</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]),</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">IntVector</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">21</span><span class="p">]),</span> <span class="n">giveCsparse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>An extension for the <code class="xref py py-mod docutils literal notranslate"><span class="pre">rpy2</span></code> conversion system is provided, allowing to
+map R objects resulting from the evaluation of R code to the wrapping classes
+defined in this package:</p>
+</div>
 <div class="section" id="inheritance-diagram">
 <h2>Inheritance Diagram<a class="headerlink" href="#inheritance-diagram" title="Permalink to this headline">¶</a></h2>
-<div class="graphviz"><img src="_images/inheritance-c97f956cf6c8d161f91598109e9e936d748695d5.png" alt="Inheritance diagram of rpy2_Matrix.Matrix" class="inheritance graphviz" /></div>
+<div class="graphviz"><img src="_images/inheritance-c7a433e82f93ec29f0e5f0d54fb4eceba1d85260.png" alt="Inheritance diagram of rpy2_Matrix.Matrix" class="inheritance graphviz" /></div>
 </div>
 <div class="section" id="module-rpy2_Matrix.Matrix">
 <span id="module-matrix"></span><h2>module <cite>Matrix</cite><a class="headerlink" href="#module-rpy2_Matrix.Matrix" title="Permalink to this headline">¶</a></h2>

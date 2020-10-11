@@ -19,6 +19,7 @@
 <area shape="rect" id="node6" title="Unable to fetch R documentation for the class" alt="" coords="138,231,221,252"/>
 <area shape="rect" id="node7" title="Class to provide methods common to all RObject instances." alt="" coords="261,46,352,67"/>
 <area shape="rect" id="node8" title="Python representation of an R instance of class &#39;S4&#39;." alt="" coords="415,25,475,46"/>
+<area shape="rect" id="node10" title="Base class for RS4 objects with the behavior of base R vectors." alt="" coords="557,46,631,67"/>
 <area shape="rect" id="node9" title="R &quot;S4&quot; object." alt="" coords="276,4,337,26"/>
 <area shape="rect" id="node18" title="Undocumented class from the R workspace." alt="" coords="690,46,764,67"/>
 <area shape="rect" id="node21" title="Undocumented class from the R workspace." alt="" coords="690,87,763,108"/>
