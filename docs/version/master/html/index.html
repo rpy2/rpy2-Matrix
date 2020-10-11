@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rpy2-Matrix: mapping R’s package Matrix for rpy2 &#8212; rpy2-Matrix 0.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="rpy2-matrix-mapping-r-s-package-matrix-for-rpy2">
+<h1>rpy2-Matrix: mapping R’s package Matrix for rpy2<a class="headerlink" href="#rpy2-matrix-mapping-r-s-package-matrix-for-rpy2" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="inheritance-diagram">
+<h2>Inheritance Diagram<a class="headerlink" href="#inheritance-diagram" title="Permalink to this headline">¶</a></h2>
+digraph inheritance31063dc1c5 {
+bgcolor=transparent;
+rankdir=LR;
+size=&quot;8.0, 12.0&quot;;
+  &quot;CsparseMatrix&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Undocumented class from the R workspace.&quot;];
+  &quot;sparseMatrix&quot; -&gt; &quot;CsparseMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Matrix&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;title&quot;];
+  &quot;mMatrix&quot; -&gt; &quot;Matrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Mnumeric&quot; -&gt; &quot;Matrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;replValueSp&quot; -&gt; &quot;Matrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Mnumeric&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Unable to fetch R documentation for the class&quot;];
+  &quot;RObjectMixin&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Class to provide methods common to all RObject instances.&quot;];
+  &quot;RS4&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Python representation of an R instance of class 'S4'.&quot;];
+  &quot;RObjectMixin&quot; -&gt; &quot;RS4&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;SexpS4&quot; -&gt; &quot;RS4&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;RS4Vector&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;];
+  &quot;RS4&quot; -&gt; &quot;RS4Vector&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Sexp&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Base class for R objects.&quot;];
+  &quot;SupportsSEXP&quot; -&gt; &quot;Sexp&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;SexpS4&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;R \&quot;S4\&quot; object.&quot;];
+  &quot;Sexp&quot; -&gt; &quot;SexpS4&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;SupportsSEXP&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;];
+  &quot;TsparseMatrix&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Undocumented class from the R workspace.&quot;];
+  &quot;sparseMatrix&quot; -&gt; &quot;TsparseMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;compMatrix&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Undocumented class from the R workspace.&quot;];
+  &quot;Matrix&quot; -&gt; &quot;compMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;dCsparseMatrix&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Undocumented class from the R workspace.&quot;];
+  &quot;sparseMatrix&quot; -&gt; &quot;dCsparseMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;dMatrix&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Undocumented class from the R workspace.&quot;];
+  &quot;Matrix&quot; -&gt; &quot;dMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;denseMatrix&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Undocumented class from the R workspace.&quot;];
+  &quot;Matrix&quot; -&gt; &quot;denseMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;dgCMatrix&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Undocumented class from the R workspace.&quot;];
+  &quot;dsparseMatrix&quot; -&gt; &quot;dgCMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;generalMatrix&quot; -&gt; &quot;dgCMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;RS4Vector&quot; -&gt; &quot;dgCMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;dgTMatrix&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Undocumented class from the R workspace.&quot;];
+  &quot;TsparseMatrix&quot; -&gt; &quot;dgTMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;dsparseMatrix&quot; -&gt; &quot;dgTMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;generalMatrix&quot; -&gt; &quot;dgTMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;RS4Vector&quot; -&gt; &quot;dgTMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;dsCMatrix&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Undocumented class from the R workspace.&quot;];
+  &quot;CsparseMatrix&quot; -&gt; &quot;dsCMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;dsparseMatrix&quot; -&gt; &quot;dsCMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;symmetricMatrix&quot; -&gt; &quot;dsCMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;dCsparseMatrix&quot; -&gt; &quot;dsCMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;RS4Vector&quot; -&gt; &quot;dsCMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;dsparseMatrix&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Undocumented class from the R workspace.&quot;];
+  &quot;dMatrix&quot; -&gt; &quot;dsparseMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;sparseMatrix&quot; -&gt; &quot;dsparseMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;generalMatrix&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Undocumented class from the R workspace.&quot;];
+  &quot;compMatrix&quot; -&gt; &quot;generalMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;iMatrix&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Undocumented class from the R workspace.&quot;];
+  &quot;Matrix&quot; -&gt; &quot;iMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;lMatrix&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Undocumented class from the R workspace.&quot;];
+  &quot;Matrix&quot; -&gt; &quot;lMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;mMatrix&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Unable to fetch R documentation for the class&quot;];
+  &quot;nMatrix&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Undocumented class from the R workspace.&quot;];
+  &quot;Matrix&quot; -&gt; &quot;nMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;replValueSp&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Unable to fetch R documentation for the class&quot;];
+  &quot;sparseMatrix&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Undocumented class from the R workspace.&quot;];
+  &quot;Matrix&quot; -&gt; &quot;sparseMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;symmetricMatrix&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Undocumented class from the R workspace.&quot;];
+  &quot;compMatrix&quot; -&gt; &quot;symmetricMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;triangularMatrix&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Undocumented class from the R workspace.&quot;];
+  &quot;Matrix&quot; -&gt; &quot;triangularMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;zMatrix&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Undocumented class from the R workspace.&quot;];
+  &quot;Matrix&quot; -&gt; &quot;zMatrix&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+}
+</div>
+<div class="section" id="module-rpy2_Matrix.Matrix">
+<span id="module-matrix"></span><h2>module <cite>Matrix</cite><a class="headerlink" href="#module-rpy2_Matrix.Matrix" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-rpy2_Matrix.conversion">
+<span id="module-conversion"></span><h2>module <cite>conversion</cite><a class="headerlink" href="#module-rpy2_Matrix.conversion" title="Permalink to this headline">¶</a></h2>
+<p>This module handles the conversion of data structures
+between R objects from the package Matrix and scipy sparse matrices.</p>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">rpy2-Matrix</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, ---.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
