@@ -81,5 +81,5 @@ jobs:
           mv -T html-doc "${DOCPATH}"
           echo "Adding docpath to local repos"
           git add "${DOCPATH}"
-          git commit -m "HTML Sphinx build for $(cat .revforbuild)"
+          git commit -m "HTML Sphinx build for $(cat .revforbuild)" "${DOCPATH}"
           git push
