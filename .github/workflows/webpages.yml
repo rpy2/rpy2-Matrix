@@ -34,7 +34,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install pandoc libgraphviz-dev
+          sudo apt-get install pandoc graphviz libgraphviz-dev
           python -m pip install --upgrade pip
           python setup.py install
           sudo Rscript scripts/install_r_packages.r Matrix
