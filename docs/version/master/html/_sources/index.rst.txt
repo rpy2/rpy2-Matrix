@@ -29,6 +29,7 @@ map R objects resulting from the evaluation of R code to the wrapping classes
 defined in this package:
 
 .. code-block:: python
+
    import rpy2_Matrix.conversion as matrix_conversion
    from rpy2 import robjects
 
