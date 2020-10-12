@@ -1,5 +1,7 @@
-"""This module handles the conversion of data structures
-between R objects from the package Matrix and scipy sparse matrices."""
+"""This module handles the conversion of data structures.
+
+In the future it fill ensure the conversion between  R objects from the R
+package Matrix and scipy sparse matrices."""
 
 import rpy2.robjects.conversion as conversion
 from rpy2.rinterface import SexpS4
