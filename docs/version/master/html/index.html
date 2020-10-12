@@ -1,44 +1,63 @@
 
-<!DOCTYPE html>
+
+<!doctype html>
 
 <html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>rpy2-Matrix: mapping R’s package Matrix for rpy2 &#8212; rpy2-Matrix 0.1.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
+    <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
   </head><body>
-  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">rpy2-Matrix 0.1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">rpy2-Matrix: mapping R’s package Matrix for rpy2</a></li> 
+      </ul>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          
-
           <div class="body" role="main">
             
   <div class="section" id="rpy2-matrix-mapping-r-s-package-matrix-for-rpy2">
 <h1>rpy2-Matrix: mapping R’s package Matrix for rpy2<a class="headerlink" href="#rpy2-matrix-mapping-r-s-package-matrix-for-rpy2" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<div class="section" id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">rpy2</span><span class="o">/</span><span class="n">rpy2</span><span class="o">-</span><span class="n">Matrix</span><span class="o">.</span><span class="n">git</span><span class="c1">#egg=rpy2_Matrix</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
 <p>This package is a wrapper for the R package <cite>Matrix</cite>.</p>
+<div class="section" id="create-r-matrix-object-with-python">
+<h3>Create R Matrix object with Python<a class="headerlink" href="#create-r-matrix-object-with-python" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rpy2_Matrix</span> <span class="kn">import</span> <span class="n">Matrix</span>
 <span class="kn">from</span> <span class="nn">rpy2.robjects.vectors</span> <span class="kn">import</span> <span class="n">IntVector</span>
 
@@ -47,6 +66,11 @@
     <span class="n">x</span><span class="o">=</span><span class="n">IntVector</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">21</span><span class="p">]),</span> <span class="n">giveCsparse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><cite>m</cite> is a Python object acting as a proxy to interact
+with an R object in the R memory space.</p>
+</div>
+<div class="section" id="map-r-matrix-object-creating-in-r">
+<h3>Map R Matrix object creating in R<a class="headerlink" href="#map-r-matrix-object-creating-in-r" title="Permalink to this headline">¶</a></h3>
 <p>An extension for the <code class="xref py py-mod docutils literal notranslate"><span class="pre">rpy2</span></code> conversion system is provided, allowing to
 map R objects resulting from the evaluation of R code to the wrapping classes
 defined in this package:</p>
@@ -58,6 +82,53 @@ defined in this package:</p>
      <span class="c1"># (implicit when importing our Python package Matrix).</span>
      <span class="n">m</span> <span class="o">=</span> <span class="n">robjects</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="s1">&#39;Matrix(c(0,1,0,0), 6, 4)&#39;</span><span class="p">)</span>
 </pre></div>
+</div>
+<p><cite>m</cite> was automatically mapped to one of the matrix classes defined in this package.</p>
+</div>
+<div class="section" id="using-matrix-objects">
+<h3>Using matrix objects<a class="headerlink" href="#using-matrix-objects" title="Permalink to this headline">¶</a></h3>
+<p>Objects can be passed to R functions compatible with <cite>Matrix</cite> objects.
+The R package <cite>Matrix</cite> contains such functions.</p>
+<p>We create a matrix to run our examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Matrix</span><span class="o">.</span><span class="n">sparseMatrix</span><span class="o">.</span><span class="n">new</span><span class="p">(</span>
+        <span class="n">IntVector</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]),</span> <span class="n">IntVector</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]),</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">IntVector</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">21</span><span class="p">]),</span> <span class="n">giveCsparse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">4 x 5 sparse Matrix of class &quot;dgCMatrix&quot;</span>
+
+<span class="go">[1,] . 3 . .  .</span>
+<span class="go">[2,] . . . .  .</span>
+<span class="go">[3,] . . 9 .  .</span>
+<span class="go">[4,] . . . . 21</span>
+</pre></div>
+</div>
+<p>To get the diagonal of our matrix:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Matrix</span><span class="o">.</span><span class="n">Matrix_pack</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">R object with classes: (&#39;numeric&#39;,) mapped to:</span>
+<span class="go">[0.000000, 0.000000, 9.000000, 0.000000]</span>
+</pre></div>
+</div>
+<p>Values in the matrix can also be accessed through R’s own subsetting system</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See the <code class="xref py py-mod docutils literal notranslate"><span class="pre">rpy2</span></code> documentation for more information it in the section about
+the method <cite>rx()</cite>.</p>
+</div>
+<p>For example, to get the values in the first row and second column (remember: R
+arrays are one-indexed, not zero-indexed)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">rx</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">R object with classes: (&#39;numeric&#39;,) mapped to:</span>
+<span class="go">[3.000000]</span>
+</pre></div>
+</div>
+<p>To get the complete second column:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">m</span><span class="o">.</span><span class="n">rx</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">R object with classes: (&#39;numeric&#39;,) mapped to:</span>
+<span class="go">[3.000000, 0.000000, 0.000000, 0.000000]</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="inheritance-diagram">
@@ -86,30 +157,37 @@ between R objects from the package Matrix and scipy sparse matrices.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
-          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="#">rpy2-Matrix</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="#">Documentation overview</a><ul>
-  </ul></li>
+  <h3><a href="#">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">rpy2-Matrix: mapping R’s package Matrix for rpy2</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#usage">Usage</a><ul>
+<li><a class="reference internal" href="#create-r-matrix-object-with-python">Create R Matrix object with Python</a></li>
+<li><a class="reference internal" href="#map-r-matrix-object-creating-in-r">Map R Matrix object creating in R</a></li>
+<li><a class="reference internal" href="#using-matrix-objects">Using matrix objects</a></li>
 </ul>
-</div>
+</li>
+<li><a class="reference internal" href="#inheritance-diagram">Inheritance Diagram</a></li>
+<li><a class="reference internal" href="#module-rpy2_Matrix.Matrix">module <cite>Matrix</cite></a></li>
+<li><a class="reference internal" href="#module-rpy2_Matrix.conversion">module <cite>conversion</cite></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -120,32 +198,26 @@ between R objects from the package Matrix and scipy sparse matrices.</p>
     </div>
 </div>
 <script>$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="footer">
-      &copy;2019, ---.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/index.rst.txt"
-          rel="nofollow">Page source</a>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">rpy2-Matrix 0.1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">rpy2-Matrix: mapping R’s package Matrix for rpy2</a></li> 
+      </ul>
     </div>
-
-    
-
-    
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, ---.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
   </body>
 </html>
