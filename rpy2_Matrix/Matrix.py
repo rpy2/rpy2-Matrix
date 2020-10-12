@@ -74,7 +74,8 @@ class Matrix(mMatrix, Mnumeric, replValueSp):
             data=rpy2.robjects.NA_Logical,
             nrow: int = 1, ncol: int = 1, byrow: bool = False,
             dimnames=rpy2.robjects.NULL,
-            sparse=rpy2.robjects.NULL, doDiag: bool = True, forceCheck: bool = False):
+            sparse=rpy2.robjects.NULL, doDiag: bool = True,
+            forceCheck: bool = False):
         unclassed_obj = Matrix_pack.Matrix(
             data=data,
             nrow=nrow, ncol=ncol, byrow=byrow,
