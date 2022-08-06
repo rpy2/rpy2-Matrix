@@ -14,7 +14,7 @@ with warnings.catch_warnings():
     warnings.simplefilter("ignore")
     Matrix_pack = importr('Matrix', on_conflict="warn")
 
-TARGET_VERSION = '1.2-'
+TARGET_VERSION = '1.4-'
 
 if not Matrix_pack.__version__.startswith(TARGET_VERSION):
     warnings.warn(
@@ -52,19 +52,13 @@ class mMatrix(metaclass=rpy2.robjects.methods.RS4Auto_Type):
     __rpackagename__ = 'Matrix'
 
 
-class Mnumeric(metaclass=rpy2.robjects.methods.RS4Auto_Type):
-    """Mapping for the RS4 class Matrix::Mnumeric."""
-    __rname__ = 'Mnumeric'
-    __rpackagename__ = 'Matrix'
-
-
 class replValueSp(metaclass=rpy2.robjects.methods.RS4Auto_Type):
     """Mapping for the RS4 class Matrix::replValueSp."""
     __rname__ = 'replValueSp'
     __rpackagename__ = 'Matrix'
 
 
-class Matrix(mMatrix, Mnumeric, replValueSp):
+class Matrix(mMatrix, replValueSp):
     """Mapping for the RS4 class Matrix::Matrix."""
     __rname__ = 'Matrix'
     __rpackagename__ = 'Matrix'
