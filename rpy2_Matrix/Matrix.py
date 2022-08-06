@@ -73,8 +73,8 @@ class Matrix(mMatrix, replValueSp):
             nrow: MissingOrInt = MissingArg,
             ncol: MissingOrInt = MissingArg,
             byrow: bool = False,
-            dimnames = rpy2.robjects.NULL,
-            sparse = rpy2.robjects.NULL,
+            dimnames=rpy2.robjects.NULL,
+            sparse=rpy2.robjects.NULL,
             doDiag: bool = True,
             forceCheck: bool = False):
 
