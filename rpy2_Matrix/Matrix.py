@@ -4,11 +4,13 @@ This module maps some of the classes defined by the R
 package Matrix.
 """
 
+from rpy2.rinterface import MissingArg
 import rpy2.robjects
 import rpy2.robjects.methods
 from rpy2.robjects import vectors
 from rpy2.robjects.packages import (importr,
                                     WeakPackage)
+import typing
 import warnings
 with warnings.catch_warnings():
     warnings.simplefilter("ignore")
@@ -21,6 +23,8 @@ if not Matrix_pack.__version__.startswith(TARGET_VERSION):
         'This was designed to match Matrix version starting with %s '
         'but you have %s' % (TARGET_VERSION, Matrix_pack.__version__)
     )
+
+MissingOrInt = typing.Union[typing.Literal[MissingArg], int]
 
 Matrix_weakpack = WeakPackage(Matrix_pack._env,
                               Matrix_pack.__rname__,
@@ -66,10 +70,14 @@ class Matrix(mMatrix, replValueSp):
     @classmethod
     def new(cls,
             data=rpy2.robjects.NA_Logical,
-            nrow: int = 1, ncol: int = 1, byrow: bool = False,
-            dimnames=rpy2.robjects.NULL,
-            sparse=rpy2.robjects.NULL, doDiag: bool = True,
+            nrow: MissingOrInt = MissingArg,
+            ncol: MissingOrInt = MissingArg,
+            byrow: bool = False,
+            dimnames = rpy2.robjects.NULL,
+            sparse = rpy2.robjects.NULL,
+            doDiag: bool = True,
             forceCheck: bool = False):
+
         unclassed_obj = Matrix_pack.Matrix(
             data=data,
             nrow=nrow, ncol=ncol, byrow=byrow,
@@ -116,6 +124,18 @@ class denseMatrix(Matrix):
     __rname__ = 'denseMatrix'
 
 
+class ddenseMatrix(dMatrix):
+    __rname__ = 'ddenseMatrix'
+
+
+class ldenseMatrix(lMatrix):
+    __rname__ = 'ldenseMatrix'
+
+
+class ndenseMatrix(Matrix):
+    __rname__ = 'ndenseMatrix'
+
+
 class sparseMatrix(Matrix):
     """Mapping for the RS4 class Matrix::sparseMatrix."""
 
@@ -140,6 +160,38 @@ class sparseMatrix(Matrix):
         else:
             obj = wrapcls(unclassed_obj)
         return obj
+
+
+class diagonalMatrix(sparseMatrix):
+    __rname__ = "diagonalMatrix"
+
+
+class ddiMatrix(diagonalMatrix, RS4Vector):
+    __rname__ = "ddiMatrix"
+
+
+class ldiMatrix(diagonalMatrix, RS4Vector):
+    __rname__ = "ldiMatrix"
+
+
+class dgeMatrix(ddenseMatrix, RS4Vector):
+    __rname__ = "dgeMatrix"
+
+
+class dtrMatrix(ddenseMatrix, RS4Vector):
+    __rname__ = "dtrMatrix"
+
+
+class dtpMatrix(ddenseMatrix, RS4Vector):
+    __rname__ = "dtpMatrix"
+
+
+class dsyMatrix(ddenseMatrix):
+    __rname__ = "dsyMatrix"
+
+
+class dspMatrix(ddenseMatrix):
+    __rname__ = "dspMatrix"
 
 
 class generalMatrix(compMatrix):
@@ -192,6 +244,10 @@ class dgTMatrix(TsparseMatrix, dsparseMatrix, generalMatrix,
 
 
 _classmap = {
+    'ddiMatrix': ddiMatrix,
+    'dgeMatrix': dgeMatrix,
+    'dtrMatrix': dtrMatrix,
+    'dtpMatrix': dtpMatrix,
     'dgCMatrix': dgCMatrix,
     'dsCMatrix': dsCMatrix,
     'dgTMatrix': dgTMatrix
