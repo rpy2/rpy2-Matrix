@@ -9,8 +9,8 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.6, 3.7, 3.8]
-        r-version: [3.6, devel]
+        python-version: [3.7, 3.8, 3.9, "3.10"]
+        r-version: ["release"]
         os: [ubuntu-latest, macOS-latest]
     steps:
     - uses: actions/checkout@v1
@@ -34,7 +34,7 @@ jobs:
       run: |
         pip install flake8 pytest codecov pytest-cov
         pip install ipython scipy
-        pip install -e git://github.com/rpy2/rpy2.git@master#egg=rpy2
+        pip install rpy2
     - name: Install R dependencies
       run: |
         Rscript -e 'install.packages(c("dplyr", "ggplot2", "tidyr"))'
