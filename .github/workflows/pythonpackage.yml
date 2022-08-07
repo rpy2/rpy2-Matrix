@@ -34,6 +34,7 @@ jobs:
       run: |
         pip install flake8 pytest codecov pytest-cov
         pip install ipython scipy
+	pip install rpy2
     - name: Install R dependencies
       run: |
         Rscript -e 'install.packages(c("dplyr", "ggplot2", "tidyr"))'
