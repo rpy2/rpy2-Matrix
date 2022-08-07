@@ -9,7 +9,8 @@ from . import conversion
 @pytest.mark.parametrize(
     'args,expected_cls',
     [((0, 2, 3), Matrix.generalMatrix),
-     ((0, 2, 2), Matrix.ddiMatrix)]
+     ((0, 2, 2), Matrix.ddiMatrix),
+     ((IntVector([0, 1, 2, 3]), 2, 2), Matrix.dgeMatrix)]
 )
 def test_Matrix(args, expected_cls):
     m = Matrix.Matrix.new(*args)
@@ -19,11 +20,15 @@ def test_Matrix(args, expected_cls):
 @pytest.mark.parametrize(
     'args,kwargs,expected_cls',
     [((IntVector([1, 3, 4]), IntVector([2, 3, 5])),
-      {'x': IntVector([3, 9, 21]), 'giveCsparse': True},
-      Matrix.sparseMatrix),
-     ((IntVector([1, 3, 4]), IntVector([2, 3, 5])),
-      {'x': IntVector([3, 9, 21]), 'giveCsparse': False},
-      Matrix.sparseMatrix)]
+      {'x': IntVector([3, 9, 21])},
+      Matrix.dgCMatrix),
+     ((IntVector([1, 2, 3]), IntVector([2, 3, 4])),
+      {'x': True},
+      Matrix.lgCMatrix),
+     ((IntVector([1, 2, 3, 4, 5, 6]),
+       IntVector([7, 6, 5, 4, 3, 2])),
+      {},
+      Matrix.ngCMatrix)]
 )
 def test_sparseMatrix(args, kwargs, expected_cls):
     m = Matrix.sparseMatrix.new(*args, **kwargs)

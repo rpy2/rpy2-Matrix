@@ -136,6 +136,11 @@ class ndenseMatrix(Matrix):
     __rname__ = 'ndenseMatrix'
 
 
+SPARSEREPR = typing.Union[typing.Literal['C'],
+                          typing.Literal['T'],
+                          typing.Literal['R']]
+
+
 class sparseMatrix(Matrix):
     """Mapping for the RS4 class Matrix::sparseMatrix."""
 
@@ -147,7 +152,9 @@ class sparseMatrix(Matrix):
             dims=vectors.MissingArg, dimnames=vectors.MissingArg,
             symmetric: bool = False, triangular: bool = False,
             index1: bool = True,
-            giveCsparse: bool = True, check: bool = True,
+            repr: SPARSEREPR = 'C',
+            giveCsparse=vectors.MissingArg,  # deprecated.
+            check: bool = True,
             use_last_ij: bool = False):
         unclassed_obj = Matrix_pack.sparseMatrix(
             i=i, j=j, p=p, x=x, dims=dims, dimnames=dimnames,
@@ -204,6 +211,11 @@ class symmetricMatrix(compMatrix):
     __rname__ = 'symmetricMatrix'
 
 
+class CsparseMatrix(sparseMatrix):
+    """Mapping for the RS4 class Matrix::CsparseMatrix."""
+    __rname__ = 'CsparseMatrix'
+
+
 class dsparseMatrix(dMatrix, sparseMatrix):
     """Mapping for the RS4 class Matrix::dsparseMatrix."""
     __rname__ = 'dsparseMatrix'
@@ -213,11 +225,6 @@ class dgCMatrix(dsparseMatrix, generalMatrix,
                 RS4Vector):
     """Mapping for the RS4 class Matrix::dcgMatrix."""
     __rname__ = 'dgCMatrix'
-
-
-class CsparseMatrix(sparseMatrix):
-    """Mapping for the RS4 class Matrix::CsparseMatrix."""
-    __rname__ = 'CsparseMatrix'
 
 
 class dCsparseMatrix(sparseMatrix):
@@ -230,6 +237,26 @@ class dsCMatrix(CsparseMatrix, dsparseMatrix, symmetricMatrix,
                 RS4Vector):
     """Mapping for the RS4 class Matrix::dsCMatrix."""
     __rname__ = 'dsCMatrix'
+
+
+class lsparseMatrix(lMatrix, sparseMatrix):
+    __rname__ = 'lsparseMatrix'
+
+
+class lgCMatrix(CsparseMatrix, lsparseMatrix, generalMatrix,
+                RS4Vector):
+    """Mapping for the RS4 class Matrix::lgCMatrix."""
+    __rname__ = 'lgCMatrix'
+
+
+class nsparseMatrix(nMatrix, sparseMatrix):
+    __rname__ = 'nsparseMatrix'
+
+
+class ngCMatrix(CsparseMatrix, nsparseMatrix, generalMatrix,
+                RS4Vector):
+    """Mapping for the RS4 class Matrix::ngCMatrix."""
+    __rname__ = 'ngCMatrix'
 
 
 class TsparseMatrix(sparseMatrix):
@@ -250,7 +277,9 @@ _classmap = {
     'dtpMatrix': dtpMatrix,
     'dgCMatrix': dgCMatrix,
     'dsCMatrix': dsCMatrix,
-    'dgTMatrix': dgTMatrix
+    'lgCMatrix': lgCMatrix,
+    'ngCMatrix': ngCMatrix,
+    'dgTMatrix': dgTMatrix,
 }
 
 nameclassmap = (rpy2.robjects
