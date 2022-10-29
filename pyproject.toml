@@ -1,0 +1,52 @@
+[build-system]
+requires = [
+    "setuptools >= 61",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rpy2-Matrix"
+description = "Mapping the R package Matrix"
+readme = "README.md"
+requires-python = ">=3.7"
+license = { text = "GPLv2+" }
+authors = [{ name = "Laurent Gautier", email = "lgautier@gmail.com" }]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Development Status :: 5 - Production/Stable"
+]
+dependencies = [
+    "pyarrow",
+    "rpy2>= 3.5"
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.urls]
+Homepage = "https://rpy2.github.io/rpy2-Matrix/"
+Documentation = "https://rpy2.github.io/rpy2-Matrix/version/main/html/index.html"
+Source = "https://github.com/rpy2/rpy2-Matrix/"
+Tracker = "https://github.com/rpy2/rpy2-Matrix/issue"
+
+[tool.setuptools]
+packages = [
+    "rpy2_Matrix"
+]
+
+[tool.setuptools.dynamic]
+version = { attr = "rpy2_Matrix.__version__" }
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+testpaths = ["rpy2_Matrix/tests"]
