@@ -1,0 +1,45 @@
+<map id="inheritance31063dc1c5" name="inheritance31063dc1c5">
+<area shape="rect" id="node1" title="Helper class that provides a standard way to create an ABC using" alt="" coords="115,52,162,68"/>
+<area shape="rect" id="node6" title="Abstract class to provide methods common to all RObject instances." alt="" coords="201,52,272,68"/>
+<area shape="rect" id="node2" title="Undocumented class from the R workspace." alt="" coords="422,67,497,84"/>
+<area shape="rect" id="node28" title="Undocumented class from the R workspace." alt="" coords="534,131,591,147"/>
+<area shape="rect" id="node37" title="Undocumented class from the R workspace." alt="" coords="535,99,590,115"/>
+<area shape="rect" id="node41" title="Undocumented class from the R workspace." alt="" coords="534,67,591,84"/>
+<area shape="rect" id="node3" title="Undocumented class from the R workspace." alt="" coords="310,99,378,115"/>
+<area shape="rect" id="node12" title="Undocumented class from the R workspace." alt="" coords="423,131,496,147"/>
+<area shape="rect" id="node20" title="Undocumented class from the R workspace." alt="" coords="421,3,498,20"/>
+<area shape="rect" id="node22" title="Undocumented class from the R workspace." alt="" coords="422,258,496,275"/>
+<area shape="rect" id="node38" title="Undocumented class from the R workspace." alt="" coords="424,163,495,179"/>
+<area shape="rect" id="node42" title="Undocumented class from the R workspace." alt="" coords="422,35,496,52"/>
+<area shape="rect" id="node4" title="title" alt="" coords="214,210,260,226"/>
+<area shape="rect" id="node13" title="Undocumented class from the R workspace." alt="" coords="312,258,376,275"/>
+<area shape="rect" id="node16" title="Undocumented class from the R workspace." alt="" coords="321,322,367,338"/>
+<area shape="rect" id="node18" title="Undocumented class from the R workspace." alt="" coords="311,354,377,370"/>
+<area shape="rect" id="node33" title="Undocumented class from the R workspace." alt="" coords="321,290,367,307"/>
+<area shape="rect" id="node34" title="Undocumented class from the R workspace." alt="" coords="321,163,367,179"/>
+<area shape="rect" id="node39" title="Undocumented class from the R workspace." alt="" coords="321,67,367,84"/>
+<area shape="rect" id="node40" title="Undocumented class from the R workspace." alt="" coords="308,131,380,147"/>
+<area shape="rect" id="node43" title="Undocumented class from the R workspace." alt="" coords="303,195,385,211"/>
+<area shape="rect" id="node44" title="Undocumented class from the R workspace." alt="" coords="321,226,367,243"/>
+<area shape="rect" id="node5" title="Unable to fetch R documentation for the class" alt="" coords="107,210,170,226"/>
+<area shape="rect" id="node7" title="Python representation of an R instance of class &#39;S4&#39;." alt="" coords="321,35,367,52"/>
+<area shape="rect" id="node9" title="Base class for RS4 objects with the behavior of base R vectors." alt="" coords="431,99,488,115"/>
+<area shape="rect" id="node8" title="R &quot;S4&quot; object." alt="" coords="214,20,260,36"/>
+<area shape="rect" id="node19" title="Undocumented class from the R workspace." alt="" coords="536,35,590,52"/>
+<area shape="rect" id="node21" title="Undocumented class from the R workspace." alt="" coords="534,195,591,211"/>
+<area shape="rect" id="node24" title="Undocumented class from the R workspace." alt="" coords="534,163,591,179"/>
+<area shape="rect" id="node31" title="Undocumented class from the R workspace." alt="" coords="535,226,590,243"/>
+<area shape="rect" id="node32" title="Undocumented class from the R workspace." alt="" coords="536,258,589,275"/>
+<area shape="rect" id="node36" title="Undocumented class from the R workspace." alt="" coords="537,3,588,20"/>
+<area shape="rect" id="node10" title="Base class for R objects." alt="" coords="115,20,162,36"/>
+<area shape="rect" id="node23" title="Undocumented class from the R workspace." alt="" coords="423,226,496,243"/>
+<area shape="rect" id="node29" title="Undocumented class from the R workspace." alt="" coords="416,290,503,307"/>
+<area shape="rect" id="node14" title="Undocumented class from the R workspace." alt="" coords="710,290,765,307"/>
+<area shape="rect" id="node15" title="Undocumented class from the R workspace." alt="" coords="622,290,679,307"/>
+<area shape="rect" id="node17" title="Undocumented class from the R workspace." alt="" coords="424,322,495,338"/>
+<area shape="rect" id="node25" title="Undocumented class from the R workspace." alt="" coords="534,354,591,370"/>
+<area shape="rect" id="node27" title="Undocumented class from the R workspace." alt="" coords="535,290,591,307"/>
+<area shape="rect" id="node30" title="Undocumented class from the R workspace." alt="" coords="535,322,591,338"/>
+<area shape="rect" id="node26" title="Undocumented class from the R workspace." alt="" coords="418,354,500,370"/>
+<area shape="rect" id="node35" title="Undocumented class from the R workspace." alt="" coords="425,195,494,211"/>
+</map>
