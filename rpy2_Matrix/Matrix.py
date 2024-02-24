@@ -16,7 +16,7 @@ with warnings.catch_warnings():
     warnings.simplefilter("ignore")
     Matrix_pack = importr('Matrix', on_conflict="warn")
 
-TARGET_VERSION = '1.4-'
+TARGET_VERSION = '1.6-'
 
 if not Matrix_pack.__version__.startswith(TARGET_VERSION):
     warnings.warn(
@@ -50,20 +50,13 @@ def _setExtractDelegators(self):
     self.rx2 = vectors.DoubleExtractDelegator(self)
 
 
-class mMatrix(metaclass=rpy2.robjects.methods.RS4Auto_Type):
-    """Mapping for the RS4 class Matrix::mMatrix."""
-    __rname__ = 'mMatrix'
-    __rpackagename__ = 'Matrix'
-
-
 class replValueSp(metaclass=rpy2.robjects.methods.RS4Auto_Type):
     """Mapping for the RS4 class Matrix::replValueSp."""
     __rname__ = 'replValueSp'
     __rpackagename__ = 'Matrix'
 
 
-class Matrix(mMatrix, replValueSp):
-    """Mapping for the RS4 class Matrix::Matrix."""
+class Matrix(replValueSp):
     __rname__ = 'Matrix'
     __rpackagename__ = 'Matrix'
 
@@ -159,7 +152,7 @@ class sparseMatrix(Matrix):
         unclassed_obj = Matrix_pack.sparseMatrix(
             i=i, j=j, p=p, x=x, dims=dims, dimnames=dimnames,
             symmetric=symmetric, triangular=triangular, index1=index1,
-            giveCsparse=giveCsparse, check=check, use_last_ij=use_last_ij)
+            repr=repr, check=check, use_last_ij=use_last_ij)
         wrapcls = _classmap.get(unclassed_obj.rclass[0])
         if wrapcls is None:
             # TODO: issue a warning if no class map ?
@@ -216,9 +209,33 @@ class CsparseMatrix(sparseMatrix):
     __rname__ = 'CsparseMatrix'
 
 
+class ddenseMatrix(dMatrix, denseMatrix):
+    __rname__ = 'ddenseMatrix'
+
+
+class unpackedMatrix(denseMatrix):
+    __rname__ = 'denseMatrix'
+
+
+class dgeMatrix(unpackedMatrix, ddenseMatrix, generalMatrix):
+    __rname__ = 'dgeMatrix'
+
+
 class dsparseMatrix(dMatrix, sparseMatrix):
     """Mapping for the RS4 class Matrix::dsparseMatrix."""
     __rname__ = 'dsparseMatrix'
+
+
+class dsyMatrix(symmetricMatrix, ddenseMatrix):
+    __rname__ = 'dsyMatrix'
+
+
+class dpoMatrix(dsyMatrix):
+    __rname__ = 'dpoMatrix'
+
+
+class corMatrix(dpoMatrix):
+    __rname__ = 'corMatrix'
 
 
 class dgCMatrix(dsparseMatrix, generalMatrix,
@@ -227,13 +244,11 @@ class dgCMatrix(dsparseMatrix, generalMatrix,
     __rname__ = 'dgCMatrix'
 
 
-class dCsparseMatrix(sparseMatrix):
-    """Mapping for the RS4 class Matrix::dCsparseMatrix."""
-    __rname__ = 'dCsparseMatrix'
+class CsparseMatrix(sparseMatrix):
+    __rname__ = 'CsparseMatrix'
 
-
+    
 class dsCMatrix(CsparseMatrix, dsparseMatrix, symmetricMatrix,
-                dCsparseMatrix,
                 RS4Vector):
     """Mapping for the RS4 class Matrix::dsCMatrix."""
     __rname__ = 'dsCMatrix'
@@ -280,6 +295,10 @@ _classmap = {
     'lgCMatrix': lgCMatrix,
     'ngCMatrix': ngCMatrix,
     'dgTMatrix': dgTMatrix,
+    'dgTMatrix': dgTMatrix,
+    'dsyMatrix': dsyMatrix,
+    'dpoMatrix': dpoMatrix,
+    'corMatrix': corMatrix,
 }
 
 nameclassmap = (rpy2.robjects
